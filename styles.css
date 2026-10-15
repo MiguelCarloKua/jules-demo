@@ -264,7 +264,18 @@ body {
   align-items: baseline;
   justify-content: center;
   gap: 4px;
-  margin-bottom: 20px;
+  margin-bottom: 8px;
+}
+
+.split-breakdown {
+  font-size: 14px;
+  font-weight: 700;
+  color: #047857;
+  margin-bottom: 16px;
+  padding: 4px 8px;
+  background-color: rgba(167, 243, 208, 0.4);
+  border-radius: var(--border-radius-sm);
+  display: inline-block;
 }
 
 .main-symbol {
