@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bill Splitter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-container">
+    <div class="card">
+      <header class="header">
+        <div class="logo-badge">₱</div>
+        <h1>Bill Splitter</h1>
+        <p class="subtitle">Split restaurant bills and tips easily with friends</p>
+      </header>
+
+      <form id="calculator-form" class="calculator-form" onsubmit="return false;">
+        <!-- Bill Amount Input -->
+        <div class="input-group">
+          <label for="bill-amount">Total Bill (₱)</label>
+          <div class="input-wrapper">
+            <span class="currency-symbol">₱</span>
+            <input
+              type="number"
+              id="bill-amount"
+              name="billAmount"
+              placeholder="0.00"
+              min="0"
+              step="any"
+              required
+            />
+          </div>
+        </div>
+
+        <!-- Number of People Input -->
+        <div class="input-group">
+          <label for="people-count">Number of People</label>
+          <div class="input-wrapper">
+            <span class="icon">👥</span>
+            <input
+              type="number"
+              id="people-count"
+              name="peopleCount"
+              placeholder="1"
+              min="1"
+              step="1"
+              value="1"
+              required
+            />
+          </div>
+        </div>
+
+        <!-- Tip Percentage Input -->
+        <div class="input-group">
+          <label for="custom-tip">Tip Percentage (%) <span class="optional">(Optional)</span></label>
+          <div class="tip-presets">
+            <button type="button" class="tip-btn" data-tip="0">0%</button>
+            <button type="button" class="tip-btn" data-tip="10">10%</button>
+            <button type="button" class="tip-btn" data-tip="15">15%</button>
+            <button type="button" class="tip-btn" data-tip="20">20%</button>
+          </div>
+          <div class="input-wrapper custom-tip-wrapper">
+            <span class="currency-symbol">%</span>
+            <input
+              type="number"
+              id="custom-tip"
+              name="customTip"
+              placeholder="Custom tip %"
+              min="0"
+              step="any"
+            />
+          </div>
+        </div>
+
+        <button type="submit" id="calculate-btn" class="calculate-btn">
+          Calculate Split
+        </button>
+      </form>
+
+      <!-- Error Message Banner -->
+      <div id="error-message" class="error-message hidden" role="alert"></div>
+
+      <!-- Result Card Area -->
+      <section id="result-section" class="result-section">
+        <div class="result-card">
+          <span class="result-label">Each Person Pays</span>
+          <div class="result-amount-container">
+            <span class="main-symbol">₱</span>
+            <span id="per-person-amount" class="main-amount">0.00</span>
+          </div>
+
+          <div class="result-breakdown">
+            <div class="breakdown-item">
+              <span class="breakdown-label">Tip Amount</span>
+              <span id="tip-amount" class="breakdown-value">₱0.00</span>
+            </div>
+            <div class="breakdown-divider"></div>
+            <div class="breakdown-item">
+              <span class="breakdown-label">Total Bill (with tip)</span>
+              <span id="total-with-tip" class="breakdown-value">₱0.00</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="js/calculator.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
